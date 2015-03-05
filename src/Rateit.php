@@ -18,20 +18,51 @@ use yii\widgets\InputWidget;
  */
 class Rateit extends InputWidget {
 
+    /**
+     * 
+     * @var integer the step value 
+     */
     public $step = 1;
     
+    /**
+     *
+     * @var integer the minimum value
+     */
     public $min = 0;
     
+    /**
+     *
+     * @var integer the maximum value
+     */
     public $max = 10;
     
+    /**
+     *
+     * @var boolean when not readonly, whether to show the reset button
+     */
     public $resetable = false;
     
+    /**
+     *
+     * @var integer width of the (star) picture
+     */
     public $star_width = 16;
     
+    /**
+     *
+     * @var integer height of the (star) picture
+     */
     public $star_height = 16;
     
+    /**
+     *
+     * @var string optional extra class to be added to the rateit div.
+     */
     public $rateit_class = null;
     
+    /**
+     * Initializes the widgets. Registers the assets.
+     */
     public function init() {
         parent::init();
         
@@ -41,6 +72,9 @@ class Rateit extends InputWidget {
         RateitAsset::register($this->getView());
     }
 
+    /**
+     * Runs the widgets. Renders the input field and the rateit div.
+     */
     public function run() {
         $id = $this->getId();
         if($this->hasModel()) {
